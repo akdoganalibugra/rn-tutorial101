@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const Title = () => {
+const Title = (props) => {
   return (
     <View>
-      <Text style={styles.title}>Hello React Native</Text>
+      <Text style={[styles.title, { color: props.color }]}>
+        {props.numberOfLines} - {props.text}
+      </Text>
     </View>
   );
 };
