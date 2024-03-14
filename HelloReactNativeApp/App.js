@@ -7,15 +7,10 @@ import Users from "./src/components/Users";
 const App = () => {
   return (
     <View style={styles.container}>
-      {/* <Title
-        text="React Native"
-        color="red"
-        numberOfLines={1}
-        isVisible={true}
-      /> */}
+      <Title text="React Native" color={"green"} />
 
       {/* <User data={{ id: 1, name: "Mehmet" }} /> */}
-      <Users data={["Ahmet", "Mehmet", "Ayşe", "Fatma"]} />
+      {/* <Users data={["Ahmet", "Mehmet", "Ayşe", "Fatma"]} /> */}
     </View>
   );
 };

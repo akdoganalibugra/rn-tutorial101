@@ -5,9 +5,7 @@ const Title = ({ isVisible, text, color, numberOfLines }) => {
   return (
     <View>
       {isVisible && (
-        <Text style={[styles.title, { color: color }]}>
-          {numberOfLines} - {text}
-        </Text>
+        <Text style={[styles.title, { color: color }]}>{text}</Text>
       )}
     </View>
   );
@@ -23,8 +21,15 @@ const styles = StyleSheet.create({
 Title.PropsTypes = {
   color: PropsTypes.string,
   numberOfLines: PropsTypes.number,
-  text: PropsTypes.string,
+  text: PropsTypes.string.isRequired,
   isVisible: PropsTypes.bool,
+};
+
+Title.defaultProps = {
+  text: "Hello World",
+  color: "black",
+  isVisible: true,
+  numberOfLines: 1,
 };
 
 export default Title;
