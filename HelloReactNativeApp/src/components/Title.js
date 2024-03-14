@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
+import PropsTypes from "prop-types";
 
-const Title = (props) => {
+const Title = ({ isVisible, text, color, numberOfLines }) => {
   return (
     <View>
-      <Text style={[styles.title, { color: props.color }]}>
-        {props.numberOfLines} - {props.text}
-      </Text>
+      {isVisible && (
+        <Text style={[styles.title, { color: color }]}>
+          {numberOfLines} - {text}
+        </Text>
+      )}
     </View>
   );
 };
@@ -16,5 +19,12 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
 });
+
+Title.PropsTypes = {
+  color: PropsTypes.string,
+  numberOfLines: PropsTypes.number,
+  text: PropsTypes.string,
+  isVisible: PropsTypes.bool,
+};
 
 export default Title;

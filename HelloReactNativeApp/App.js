@@ -7,11 +7,14 @@ import Users from "./src/components/Users";
 const App = () => {
   return (
     <View style={styles.container}>
-      <Title text="React Native" color="red" numberOfLines={1} />
-      <Title text="React" color="green" numberOfLines={2} />
-      <Title text="Javascript" color="blue" numberOfLines={3} />
+      {/* <Title
+        text="React Native"
+        color="red"
+        numberOfLines={1}
+        isVisible={true}
+      /> */}
 
-      <User data={{ id: 1, name: "Mehmet" }} />
+      {/* <User data={{ id: 1, name: "Mehmet" }} /> */}
       <Users data={["Ahmet", "Mehmet", "Ayşe", "Fatma"]} />
     </View>
   );
