@@ -1,16 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
-import Title from "./src/components/Title";
-import Header from "./src/components/Header";
-import User from "./src/components/User";
-import Users from "./src/components/Users";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TouchableHighlight,
+  TouchableWithoutFeedback,
+} from "react-native";
 
 const App = () => {
+  const handleClick = () => {
+    alert("Hi");
+  };
+
   return (
     <View style={styles.container}>
-      <Title text="React Native" color={"green"} />
+      <Button title="Click Me!" onPress={handleClick} />
+      <TouchableOpacity onPress={handleClick}>
+        <Text>Click TouchableOpacity!</Text>
+      </TouchableOpacity>
 
-      {/* <User data={{ id: 1, name: "Mehmet" }} /> */}
-      {/* <Users data={["Ahmet", "Mehmet", "Ayşe", "Fatma"]} /> */}
+      <TouchableHighlight
+        onPress={() => alert("Pressed!")}
+        activeOpacity={1}
+        underlayColor={"#DDDDDD"}
+      >
+        <Text>Click TouchableHighlight!</Text>
+      </TouchableHighlight>
+
+      <TouchableWithoutFeedback onPress={handleClick}>
+        <Text>Click TouchableWithoutFeedback!</Text>
+      </TouchableWithoutFeedback>
     </View>
   );
 };
