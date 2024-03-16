@@ -3,23 +3,18 @@ import React, { useState } from "react";
 import { StyleSheet, Text, SafeAreaView, Button } from "react-native";
 
 const App = () => {
-  const [name, setName] = useState("Ahmet");
-  const [age, setAge] = useState(25);
-  const [isVisible, setIsVisible] = useState(true);
+  const [user, setUser] = useState({ id: 1, name: "Mehmet" });
+
+  const handlePress = () => {
+    setUser((prevState) => ({ ...prevState, name: "Ali" }));
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Button
-        title={isVisible ? "Gizle" : "Göster"}
-        onPress={() => setIsVisible(!isVisible)}
-      />
-      {isVisible && (
-        <>
-          <Text>İsim: {name}</Text>
-          <Text>Yaş: {age}</Text>
-          <Button title="İsmi Değiştir" onPress={() => setName("Ali")} />
-          <Button title="Yaşı Değiştir" onPress={() => setAge("23")} />
-        </>
-      )}
+      <Text style={styles.text}>ID: {user.id}</Text>
+      <Text style={styles.text}>Name: {user.name}</Text>
+
+      <Button title="Click Me" onPress={handlePress} />
     </SafeAreaView>
   );
 };
@@ -29,6 +24,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
 
