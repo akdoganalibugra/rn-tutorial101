@@ -6,20 +6,32 @@ const Counter = () => {
   const [amount, setAmount] = useState(1);
 
   const increase = () => {
-    setCount(count + amount);
+    setCount((prev) => prev + count);
   };
 
   useEffect(() => {
-    console.log("useEffect");
+    const interval = setInterval(() => {
+      setCount((prev) => prev + 1);
+    }, 1000);
+    console.log("setInterval");
+
+    return () => {
+      clearInterval(interval);
+      console.log("clearInterval");
+    };
   }, []);
 
-  useEffect(() => {
-    console.log("useEffect count");
-  }, [count]);
+  // useEffect(() => {
+  //   console.log("useEffect count");
+  // }, [count]);
 
-  useEffect(() => {
-    console.log("useEffect count & amount");
-  }, [count, amount]);
+  // useEffect(() => {
+  //   console.log("useEffect count");
+  // }, [count]);
+
+  // useEffect(() => {
+  //   console.log("useEffect count & amount");
+  // }, [count, amount]);
 
   return (
     <View style={styles.container}>

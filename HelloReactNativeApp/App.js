@@ -11,9 +11,12 @@ import {
 import Counter from "./src/components/Counter";
 
 const App = () => {
+  const [isVisible, setIsVisible] = useState(true);
   return (
     <SafeAreaView style={styles.container}>
-      <Counter />
+      {isVisible && <Counter />}
+
+      <Button title="Göster / Gizle" onPress={() => setIsVisible(!isVisible)} />
     </SafeAreaView>
   );
 };
