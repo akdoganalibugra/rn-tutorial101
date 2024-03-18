@@ -9,18 +9,31 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./src/screens/Home";
 import UsersScreen from "./src/screens/Users";
 import UserDetail from "./src/screens/UserDetail";
+import HeaderLogo from "./src/components/HeaderLogo";
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Users">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "lightblue",
+          },
+          headerTintColor: "black",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      >
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{
             title: "Overview",
+            headerTitle: (props) => <HeaderLogo {...props} />,
           }}
         />
         <Stack.Screen
@@ -33,9 +46,9 @@ function App() {
         <Stack.Screen
           name="UserDetail"
           component={UserDetail}
-          options={{
-            title: "User Detail",
-          }}
+          options={({ route }) => ({
+            title: route.params.name,
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
