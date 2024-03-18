@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -34,6 +34,20 @@ function App() {
           options={{
             title: "Overview",
             headerTitle: (props) => <HeaderLogo {...props} />,
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="Info"
+                color="#fff"
+              />
+            ),
+            headerLeft: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="Left button"
+                color="#fff"
+              />
+            ),
           }}
         />
         <Stack.Screen
@@ -41,6 +55,13 @@ function App() {
           component={UsersScreen}
           options={{
             title: "Users",
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="Info"
+                color="#fff"
+              />
+            ),
           }}
         />
         <Stack.Screen
